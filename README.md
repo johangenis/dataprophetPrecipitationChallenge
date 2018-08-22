@@ -5,7 +5,7 @@
 Note that you do not have to implement the model, but that your report should outline the approach you would take. Where applicable, you may provide Python3 TensorFlow code snippets to clarify your approach.
 Your chosen model must be a deep learning model, and your report must cover at least the following topics:
 ###  A detailed overview of the model's architecture, including descriptions of any and all layer types. 
-       The proposed model is to be a Generative Model using Variational Autoencoding. Variational Autoencoding suits the preciptation forcast problem well, in that the data is unlabeled and new images is expected as predictions from the input data. The network consists of mainly 3 parts - the Encoder, Decoder and Loss Function.
+The proposed model is to be a Generative Model using Variational Autoencoding. Variational Autoencoding suits the preciptation forcast problem well, in that the data is unlabeled and new images is expected as predictions from the input data. The network consists of mainly 3 parts - the Encoder, Decoder and Loss Function.
        Defining the Encoder (see code snipped below). The encoder creates objects following a Gaussian Distribution:
    * A vector of means
    * A vector of standard deviations
