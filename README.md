@@ -9,8 +9,9 @@ Your chosen model must be a deep learning model, and your report must cover at l
        Defining the Encoder (see code snipped below). The encoder creates objects following a Gaussian Distribution:
         * A vector of means
         * A vector of standard deviations
+
        ```
-       def encoder(X_in, keep_prob):
+  def encoder(X_in, keep_prob):
     activation = lrelu
     with tf.variable_scope("encoder", reuse=None):
         X = tf.reshape(X_in, shape=[-1, 28, 28, 1])
@@ -26,11 +27,9 @@ Your chosen model must be a deep learning model, and your report must cover at l
         epsilon = tf.random_normal(tf.stack([tf.shape(x)[0], n_latent])) 
         z  = mn + tf.multiply(epsilon, tf.exp(sd))
         
-        return z, mn, sd
-        ```
-
-
-
+   return z, mn, sd
+        
+       ```
 ### Answer at least the following questions in your discussion:
 
 ####  1. What makes this model architecture suitable for the precipitation forecast problem?
