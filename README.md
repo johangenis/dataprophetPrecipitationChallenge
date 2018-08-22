@@ -33,11 +33,11 @@ Additionally, add the following in your report:
 
 To improve your chances, answer the following questions in your report. You may include these answers as part of discussions throughout your report, or answer them directly in a separate section.
 
-	1.	Discuss two machine learning approaches that would also be able to perform the task. Explain how these methods could be applied instead of your chosen method. 
-	2.	Explain the difference between supervised and unsupervised learning. 
-	3.	Explain the difference between classification and regression. 
-	4.	In supervised classification tasks, we are often faced with datasets in which one of the classes is much more prevalent than any of the other classes. This condition is called class imbalance. Explain the consequences of class imbalance in the context of machine learning. 
-	5.	Explain how any negative consequences of the class imbalance problem (explained in question 4) can be mitigated. 
-	6.	Provide a short overview of the key differences between deep learning and any non-deep learning method. 
-	7.	What is the most recent development in AI that you are aware of and what is its application, if any? 
-	8.	Explain how the above development moves our understanding of the field forward.
+1. Discuss two machine learning approaches that would also be able to perform the task. Explain how these methods could be applied instead of your chosen method. 
+2. Explain the difference between supervised and unsupervised learning. 
+3. Explain the difference between classification and regression. 
+4. In supervised classification tasks, we are often faced with datasets in which one of the classes is much more prevalent than any of the other classes. This condition is called class imbalance. Explain the consequences of class imbalance in the context of machine learning. 
+5. Explain how any negative consequences of the class imbalance problem (explained in question 4) can be mitigated. 
+6. Provide a short overview of the key differences between deep learning and any non-deep learning method.
+7. What is the most recent development in AI that you are aware of and what is its application, if any? 
+8. Explain how the above development moves our understanding of the field forward.
