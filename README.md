@@ -26,8 +26,7 @@ Your chosen model must be a deep learning model, and your report must cover at l
             epsilon = tf.random_normal(tf.stack([tf.shape(x)[0], n_latent])) 
             z  = mn + tf.multiply(epsilon, tf.exp(sd))
    return z, mn, sd
-        
-       ```
+   
 ### Answer at least the following questions in your discussion:
 
 ####  1. What makes this model architecture suitable for the precipitation forecast problem?
