@@ -5,11 +5,37 @@
 Note that you do not have to implement the model, but that your report should outline the approach you would take. Where applicable, you may provide Python3 TensorFlow code snippets to clarify your approach.
 Your chosen model must be a deep learning model, and your report must cover at least the following topics:
 ###  A detailed overview of the model's architecture, including descriptions of any and all layer types. 
+       The proposed model is to be a Generative Model using Variational Autoencoding. Variational Autoencoding suits the preciptation forcast problem well, in that the data is unlabeled and new images is expected as predictions from the input data. The network consists of mainly 3 parts - the Encoder, Decoder and Loss Function.
+       Defining the Encoder (see code snipped below). The encoder creates objects following a Gaussian Distribution:
+        * A vector of means
+        * A vector of standard deviations
+       '''
+       def encoder(X_in, keep_prob):
+    activation = lrelu
+    with tf.variable_scope("encoder", reuse=None):
+        X = tf.reshape(X_in, shape=[-1, 28, 28, 1])
+        x = tf.layers.conv2d(X, filters=64, kernel_size=4, strides=2, padding='same', activation=activation)
+        x = tf.nn.dropout(x, keep_prob)
+        x = tf.layers.conv2d(x, filters=64, kernel_size=4, strides=2, padding='same', activation=activation)
+        x = tf.nn.dropout(x, keep_prob)
+        x = tf.layers.conv2d(x, filters=64, kernel_size=4, strides=1, padding='same', activation=activation)
+        x = tf.nn.dropout(x, keep_prob)
+        x = tf.contrib.layers.flatten(x)
+        mn = tf.layers.dense(x, units=n_latent)
+        sd       = 0.5 * tf.layers.dense(x, units=n_latent)            
+        epsilon = tf.random_normal(tf.stack([tf.shape(x)[0], n_latent])) 
+        z  = mn + tf.multiply(epsilon, tf.exp(sd))
+        
+        return z, mn, sd
+        
+       '''
+
 
 
 ### Answer at least the following questions in your discussion:
 
 ####  1. What makes this model architecture suitable for the precipitation forecast problem?
+The fact that autoencoders is a form of unsupervised learing makes it suitable for the the data presented in the precipitation dataset, which is unlabeled.
 
 
 ####  2. How would your pipeline read image data and feed it into the model?
@@ -29,7 +55,10 @@ Your chosen model must be a deep learning model, and your report must cover at l
 Additionally, add the following in your report:
 
 * Give a brief overview of auto-encoders.
+  * Autoencoders are a type of neural network that can be used to learn efficient codings of input data. Given some inputs, the network firstly applies a series of transformations that map the input data into a lower dimensional space, which is called the encoder part of the network. 
+  * The network then uses the encoded data to try and recreate the inputs, which is called the decoder part of the network. Using the encoder data is compressed into a type that is understood by the network.
 * Give a brief overview of variational autoencoders.
+  * With variational autoencoders, which also compresses data, it is also possible to generate new images from the input provided to the network. 
 * Give a brief overview of generative adversarial networks.
 * Optionally, answer the bonus questions below:
 
