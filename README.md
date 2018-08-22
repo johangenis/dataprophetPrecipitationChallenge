@@ -64,6 +64,16 @@ The fact that autoencoders is a form of unsupervised learing makes it suitable f
 
 
 ####  2. How would your pipeline read image data and feed it into the model?
+``` Python
+    import tensorflow as tf
+    import numpy as np
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+
+    from local/machine import input_data
+    percipitation = input_data.read_data_sets('percipitation_data')
+
+```
 
 
 ####  3. How does this model architecture learn from sequence data?
