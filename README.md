@@ -28,7 +28,7 @@ The proposed model is to be a Generative Model using Variational Autoencoding. V
         
    return z, mn, sd
   ``` 
-  Defining the decoder:
+#### Defining the decoder:
 The decoder will attempt to reconstruct the input images using a series of transpose convolutions:
 ```Python
    def decoder(sampled_z, keep_prob):
@@ -46,7 +46,7 @@ The decoder will attempt to reconstruct the input images using a series of trans
         img = tf.reshape(x, shape=[-1, 28, 28])
      return img
   ```
-Computing losses and enforcing a Gaussian latent distribution:
+#### Computing losses and enforcing a Gaussian latent distribution:
 For computing the image reconstruction loss, the squared difference is used (which could lead to images sometimes looking a bit fuzzy). This loss is combined with the Kullback-Leibler(KL) divergence, which makes sure our latent values will be sampled from a normal distribution.
 ``` Python
     unreshaped = tf.reshape(dec, [-1, 28*28])
