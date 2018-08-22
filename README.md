@@ -46,8 +46,17 @@ The decoder will attempt to reconstruct the input images using a series of trans
         img = tf.reshape(x, shape=[-1, 28, 28])
      return img
   ```
-  
-  
+Computing losses and enforcing a Gaussian latent distribution:
+For computing the image reconstruction loss, the squared difference is used (which could lead to images sometimes looking a bit fuzzy). This loss is combined with the Kullback-Leibler(KL) divergence, which makes sure our latent values will be sampled from a normal distribution.
+``` Python
+    unreshaped = tf.reshape(dec, [-1, 28*28])
+    img_loss = tf.reduce_sum(tf.squared_difference(unreshaped, Y_flat), 1)
+    latent_loss = -0.5 * tf.reduce_sum(1.0 + 2.0 * sd - tf.square(mn) - tf.exp(2.0 * sd), 1)
+    loss = tf.reduce_mean(img_loss + latent_loss)
+    optimizer = tf.train.AdamOptimizer(0.0005).minimize(loss)
+    sess = tf.Session()
+    sess.run(tf.global_variables_initializer())
+ ``` 
 ### Answer at least the following questions in your discussion:
 
 ####  1. What makes this model architecture suitable for the precipitation forecast problem?
