@@ -28,6 +28,27 @@ The proposed model is to be a Generative Model using Variational Autoencoding. V
         
    return z, mn, sd
   ``` 
+  Defining the decoder
+The decoder will attempt to reconstruct the input images using a series of transpose convolutions:
+```Python
+   def decoder(sampled_z, keep_prob):
+    with tf.variable_scope("decoder", reuse=None):
+        x = tf.layers.dense(sampled_z, units=inputs_decoder, activation=lrelu)
+        x = tf.layers.dense(x, units=inputs_decoder * 2 + 1, activation=lrelu)
+        x = tf.reshape(x, reshaped_dim)
+        x = tf.layers.conv2d_transpose(x, filters=64, kernel_size=4, strides=2, padding='same', activation=tf.nn.relu)
+        x = tf.nn.dropout(x, keep_prob)
+        x = tf.layers.conv2d_transpose(x, filters=64, kernel_size=4, strides=1, padding='same', activation=tf.nn.relu)
+        x = tf.nn.dropout(x, keep_prob)
+        x = tf.layers.conv2d_transpose(x, filters=64, kernel_size=4, strides=1, padding='same', activation=tf.nn.relu)
+        
+        x = tf.contrib.layers.flatten(x)
+        x = tf.layers.dense(x, units=28*28, activation=tf.nn.sigmoid)
+        img = tf.reshape(x, shape=[-1, 28, 28])
+        return img
+  ```
+  
+  
 ### Answer at least the following questions in your discussion:
 
 ####  1. What makes this model architecture suitable for the precipitation forecast problem?
