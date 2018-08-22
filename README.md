@@ -4,24 +4,27 @@
 
 Note that you do not have to implement the model, but that your report should outline the approach you would take. Where applicable, you may provide Python3 TensorFlow code snippets to clarify your approach.
 Your chosen model must be a deep learning model, and your report must cover at least the following topics:
-#### 1.  A detailed overview of the model's architecture, including descriptions of any and all layer types. Answer at least the following questions in your discussion:
-
-#### 2. What makes this model architecture suitable for the precipitation forecast problem?
+#### 1.  A detailed overview of the model's architecture, including descriptions of any and all layer types. 
 
 
-#### 3. How would your pipeline read image data and feed it into the model?
+#### Answer at least the following questions in your discussion:
+
+####  2. What makes this model architecture suitable for the precipitation forecast problem?
 
 
-#### 4. How does this model architecture learn from sequence data?
+####  3. How would your pipeline read image data and feed it into the model?
 
 
-#### 5. How does this model architecture generate output sequences?
+####  4. How does this model architecture learn from sequence data?
 
 
-#### 6. How does this model generate images in the outptut layer(s)?
+####  5. How does this model architecture generate output sequences?
 
 
-#### 7. An overview of at least two different evaluation metrics that could be used to evaluate the model's performance.
+####  6. How does this model generate images in the outptut layer(s)?
+
+
+####  7. An overview of at least two different evaluation metrics that could be used to evaluate the model's performance.
 
 Additionally, add the following in your report:
 
